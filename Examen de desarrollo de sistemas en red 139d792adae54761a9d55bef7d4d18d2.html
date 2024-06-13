@@ -1,0 +1,732 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Examen de desarrollo de sistemas en red</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="139d792a-dae5-4761-a9d5-5bef7d4d18d2" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🌐</span></div><h1 class="page-title">Examen de desarrollo de sistemas en red</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Fecha</th><td><time>@12 de junio de 2024 21:01</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Asignatura</th><td><span class="selected-value select-value-color-pink">sistemas en red</span></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCheckbox"><path d="M3.85742 14.4561H12.1357C13.6123 14.4561 14.3779 13.6904 14.3779 12.2344V3.91504C14.3779 2.45215 13.6123 1.69336 12.1357 1.69336H3.85742C2.38086 1.69336 1.61523 2.45215 1.61523 3.91504V12.2344C1.61523 13.6973 2.38086 14.4561 3.85742 14.4561ZM3.93945 13.1162C3.30371 13.1162 2.95508 12.7812 2.95508 12.1182V4.02441C2.95508 3.36133 3.30371 3.0332 3.93945 3.0332H12.0537C12.6826 3.0332 13.0381 3.36133 13.0381 4.02441V12.1182C13.0381 12.7812 12.6826 13.1162 12.0537 13.1162H3.93945ZM7.26855 11.3115C7.51465 11.3115 7.72656 11.1885 7.87012 10.9697L10.9258 6.19141C11.0146 6.04785 11.0967 5.88379 11.0967 5.72656C11.0967 5.3916 10.7959 5.16602 10.4746 5.16602C10.2695 5.16602 10.085 5.27539 9.94141 5.50781L7.24121 9.8418L5.96973 8.22168C5.80566 8.00977 5.6416 7.93457 5.43652 7.93457C5.10156 7.93457 4.8418 8.20117 4.8418 8.54297C4.8418 8.70703 4.90332 8.85742 5.01953 9.00098L6.63281 10.9697C6.81738 11.209 7.01562 11.3115 7.26855 11.3115Z"></path></svg></span>Revisado</th><td><div class="checkbox checkbox-off"></div></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Creado por</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKPOenk2DI9_HXBnN7G9SfU30IgCOxIvkZharQG-__8OOE=s100" class="icon user-icon"/>Gerly Daniel Arteaga Bernal</span></td></tr></tbody></table></header><div class="page-body"><h1 id="84796f21-7d38-4920-9024-fdf4adc9610f" class="">Temas a repasar: </h1><p id="33c8fe56-8e7d-4175-baca-f4b57e1dc091" class="">
+</p><h2 id="ff0d7aca-86c3-49d7-96b6-a887552b1802" class="">Topologías de red </h2><p id="3ab6ec2d-e068-4aa0-abdd-15d581285a09" class="">Las mas populares son: </p><ul id="68c09c44-d492-4e4c-a89d-a6be9e0747f1" class="bulleted-list"><li style="list-style-type:disc">Topologia en anilo (ring) <figure id="45e38838-892d-455f-909b-bce514d080b8" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled.png"><img style="width:497px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled.png"/></a></figure></li></ul><ul id="d678ecc2-19ed-44c2-8564-bfb9080ace12" class="bulleted-list"><li style="list-style-type:disc">Topologia en estrella (star) </li></ul><figure id="fff52ac5-3670-4a0c-bd3f-a3061b3d39c1" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%201.png"><img style="width:583px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%201.png"/></a></figure><ul id="c3940090-3af4-4064-bbfc-cb4fc6f1736a" class="bulleted-list"><li style="list-style-type:disc">Topologia en bus </li></ul><figure id="2cc67ac0-c582-4736-bb00-c4a2656d49bf" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%202.png"><img style="width:597px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%202.png"/></a></figure><ul id="80cf6152-2468-4d9f-8a65-496ee4161288" class="bulleted-list"><li style="list-style-type:disc">Topologia en arbol (Tree) </li></ul><figure id="ad91b5f0-8403-4aac-8318-1ffd2634ff65" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%203.png"><img style="width:880px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%203.png"/></a></figure><ul id="ce2e978a-75d7-48d0-b422-2e2985e780cf" class="bulleted-list"><li style="list-style-type:disc">Topologia en malla (mesh) </li></ul><figure id="5712b241-6a05-483d-8f43-aa7716d1c481" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%204.png"><img style="width:614px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%204.png"/></a></figure><ul id="c7394de4-8647-455f-a2a0-95f81a44aff1" class="bulleted-list"><li style="list-style-type:disc">Topologia en Ad-hoc </li></ul><figure id="0bb88cb8-ea34-426d-a07b-5ee905997951" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%205.png"><img style="width:656px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%205.png"/></a></figure><p id="2e191a45-b847-48d8-9bab-10fa7ea5e159" class="">
+</p><h2 id="05f91296-d626-4ef3-9f94-4ee65af567c2" class="">Tipos de redes y tecnologias de comunicacion</h2><h3 id="1c1aebf6-9de3-47a9-98ce-86187bab70d7" class="">Tipos de redes</h3><ul id="48519937-60c8-4466-8ca5-7c76c328cf88" class="bulleted-list"><li style="list-style-type:disc">Basadas en su transmision<ul id="9eb8dfe9-725f-49c7-983d-2b97da96944d" class="bulleted-list"><li style="list-style-type:circle">de difusion (broadcast) </li></ul><ul id="41cc8ecc-0527-4405-905a-b4acef654d8e" class="bulleted-list"><li style="list-style-type:circle">de punto a punto (point to point)</li></ul></li></ul><ul id="be0c17fb-d896-4748-a746-7b5353aad08e" class="bulleted-list"><li style="list-style-type:disc"><strong>Basadas en su escala: </strong><ul id="d8358cb8-fc09-40b9-a943-b8c0bf017eb3" class="bulleted-list"><li style="list-style-type:circle">Redes de area personal (PAN) </li></ul><ul id="5186a2ac-1418-4612-9e23-9f38894fc5c2" class="bulleted-list"><li style="list-style-type:circle">Redes de area local (LAN) </li></ul><ul id="75f900e3-940f-4627-8544-31a26f4b005f" class="bulleted-list"><li style="list-style-type:circle">Redes de area metropolitanta (MAN) </li></ul><ul id="68a7f7e6-9b0a-4b02-8333-717d47978267" class="bulleted-list"><li style="list-style-type:circle">Redes de area amplia (WAN) </li></ul><p id="903569a7-53e5-456d-b22e-f94d862fd460" class="">
+</p><h2 id="e0fb26a7-ddfd-4389-ac73-b9eb45fbdf5a" class="">Protocolos y redes para el modelo TCP</h2></li></ul><figure id="c4702a82-eaff-43ae-9d98-d1c70565fc57" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%206.png"><img style="width:809px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%206.png"/></a></figure><p id="a2d02be0-83e1-40a6-8301-f377c3856aab" class="">
+</p><p id="616eac69-dcc2-468e-ac75-c8588862a681" class="">
+</p><h2 id="479ac8e0-bd3a-4882-8a3b-ba659dfa735b" class="">Sistemas distribuidos</h2><p id="9943179d-d48b-479d-8489-4a74355e6e20" class="">Un sistema distribuido es una coleccion de computadoras independientes que dan al usuario la impresion de construir un unico sistema coherente </p><p id="becdcf9e-d787-4098-8dc6-01a3d02bf053" class="">
+</p><p id="4d03a356-3ecb-4519-9e18-a26aa54fe310" class="">Un sistema distribuido es aquel en el que  la falla de una computadora, que ni siquiera sabaia que existia, puede inutilizar su propia computadora </p><p id="0f4798b6-e104-4a62-8af9-6032030c672a" class="">
+</p><p id="2d6bf659-21a4-4af3-9467-8a9b96afbb6c" class=""><br/>● Los usuarios (personas o programas) creen que realmente interactúan con<br/>un sistema único.<br/>● De una manera o de otra los componentes autónomos necesitan colaborar<br/>entre sí.<br/></p><ul id="cc2dfbf2-4128-4062-bf5e-40436248a68c" class="bulleted-list"><li style="list-style-type:disc">Un Sistema distribuido consta de componentes (es decir, computadoras)<br/>autónomos.<br/></li></ul><p id="2d6b981d-d7fb-486c-a188-4cd68064db9e" class="">
+</p><h3 id="71c2c490-28e4-4756-8799-f762229eccc7" class="">Características de los sistemas distribuidos</h3><ul id="a0ba2c07-0493-40dc-8acd-262eb6f2a439" class="bulleted-list"><li style="list-style-type:disc">Una característica importante es que las diferencias entre las distintas computadoras y la manera en que se comunican entre si quedan ocultas para el usuario.</li></ul><ul id="b07aef78-eb0b-472b-88ce-9848ea7601ca" class="bulleted-list"><li style="list-style-type:disc">Los usuarios y las aplicaciones pueden interactuar con un sistema distribuido de manera consistente y uniforme sin importar donde y cuando tengan lugar. </li></ul><ul id="0cb7d6a5-9325-4d2c-a654-626b26e77db1" class="bulleted-list"><li style="list-style-type:disc">Un sistema distribuido  <span style="border-bottom:0.05em solid">estará disponible de manera continua, </span>aunque tal vez algunas partes puedan encontrarse fuera de operación.</li></ul><ul id="f61453f8-0a10-4852-961e-b06e53271f29" class="bulleted-list"><li style="list-style-type:disc">Los usuarios y las aplicaciones no deben notar que las partes son separadas, o que se agregan nuevas secciones para servir a mas usuarios o aplicaciones. </li></ul><ul id="a4d88999-a811-4ec1-a387-d532e0fba69c" class="bulleted-list"><li style="list-style-type:disc"><strong>El principal objetivo de un sistema distribuido es facilitar a los usuarios el acceso a los recursos remotos y compartidos de manera controlada y eficiente. </strong><ul id="3e4ac0bd-db10-4516-af9d-58113d8e93a4" class="bulleted-list"><li style="list-style-type:circle">Recursos: impresoras, computadoras, dispositivos de almacenamiento, datos, archivos, paginas web, redes, etc.</li></ul></li></ul><p id="09159bc9-0765-448b-b7a6-4b977be71215" class="">
+</p><h3 id="cd64d439-d6e5-4e4c-a8a1-e6476c3fbfc8" class="">¿Qué es la transparencia? </h3><p id="31adacc9-1167-41f3-bd55-ceae1fd97305" class="">Decimos que un sistema distribuido es transparente si es capaz de presentarse a los usuarios y las aplicaciones como si se tratara de una sola computadora. </p><h3 id="a409c358-0638-48f6-be7a-86bc94371fdb" class="">¿Pueden haber tipos de transparencia? </h3><p id="0e24b2e1-c8bb-4236-823a-c6f4c26b534c" class="">si, aquí hay algunos: </p><ul id="d3abd24c-d276-42f7-ba56-3d6317376f85" class="bulleted-list"><li style="list-style-type:disc"><strong>Acceso: </strong> Oculta diferencias en la representación de los datos y la forma en que un recurso accede a los datos. </li></ul><ul id="1a4b2bea-a6ab-46bf-b517-91f409d0b9b8" class="bulleted-list"><li style="list-style-type:disc"><strong>Ubicacion: </strong> Oculta la localizacion de un recurso. </li></ul><ul id="61549dfc-07de-4468-83d4-0299135fbc00" class="bulleted-list"><li style="list-style-type:disc"><strong>Migracion: </strong> Oculta el que un recurso pudiera moverse a otra ubicacion. </li></ul><ul id="0c1879f7-86be-4f64-90a4-1df7b509adf0" class="bulleted-list"><li style="list-style-type:disc"><strong>Reubicacion: </strong> Oculta el que un recurso pudiera moverse a otra ubicacion mientras esta en uso. </li></ul><ul id="09f15e6a-4597-4e20-9514-ecd7bded0097" class="bulleted-list"><li style="list-style-type:disc"><strong>Replicacion: </strong> Oculta el numero de copias de un recurso. </li></ul><ul id="94467a89-4f11-4cad-9e97-65c490726dd7" class="bulleted-list"><li style="list-style-type:disc"><strong>Concurrencia: </strong>Oculta que un recurso puede ser compartido por varios usuarios que compiten por el </li></ul><ul id="ad551f53-b46c-4917-af93-4e2a1528d684" class="bulleted-list"><li style="list-style-type:disc"><strong>Falla: </strong>Oculta la falla y recuperacion de un recurso. </li></ul><p id="8cf23709-1711-4abe-88b9-e27235f9ae9c" class="">
+</p><h3 id="929f7f68-8427-4dfc-8aaf-69f94b7b0d93" class="">Aspectos del diseño </h3><ul id="a4406313-b4f9-4bb9-8fe3-20c2e4455248" class="bulleted-list"><li style="list-style-type:disc"><strong>Flexibilidad: </strong>Facilita modificaciones al diseño inicial. </li></ul><ul id="44b03c50-0c0e-4d4b-ae06-4cbde1f6cbdd" class="bulleted-list"><li style="list-style-type:disc"><strong>Confiabilidad: </strong> Permite que, en caso de que una computadora falle, otra la pueda sustituir en la realizacion de sus tareas asignadas. </li></ul><ul id="2ba486df-c7f0-42ba-95b2-56ca0a76ef1c" class="bulleted-list"><li style="list-style-type:disc"><strong>Desempeño: </strong> Esta en referencia a los tiempos de respuesta de una aplicacion. </li></ul><ul id="11222f32-a2a3-444a-9b36-9c17524244d0" class="bulleted-list"><li style="list-style-type:disc"><strong>Escalalibilidad: </strong> Permite que a la arquitectura actual se le pueda adicionar mas poder de computo</li></ul><ul id="9b853897-28ac-4825-bf99-0e1b1eb7d649" class="bulleted-list"><li style="list-style-type:disc"><strong>Reparticion de carga</strong>; Se debe analizar con que equipos cuenta el sistema y los diferentes recursos de computo de cada uno de ellos como la capacidad del disco, velocidad de la red etc. </li></ul><ul id="77431e9f-eed2-4079-ac1c-a45c06721b2d" class="bulleted-list"><li style="list-style-type:disc"><strong>Mantenimiento de constancia: </strong> Verificar que todos los conceptos involucrados con el sistema operativo, al operar en un sistema distribuido, sigan realizadonse  de la  manera correcta. </li></ul><p id="0c867b17-52dc-4771-a509-235b11defe53" class="">
+</p><h3 id="5e11e8e3-02f7-4010-871a-7a3b9527215b" class="">¿Un sistema distribuido debe ser siempre transparente? </h3><p id="e447e07d-e5d9-4418-9b2d-9356791bceed" class="">La respuesta es que no, pero el costo de no tenerla completa puede ser muy alto. </p><p id="6164e4cf-bd7a-4e83-b71c-68005ec06b4f" class="">
+</p><h2 id="43e0a267-dd5c-4c72-bbb5-e420023bf336" class="">Multiprogramación y multitareas. </h2><p id="3854321b-53cc-45c4-8921-72a68243dea7" class="">La <strong>uniprogramacion </strong> ha quedado obsoleta 🥶, lo de hoy es la <strong> multiprogramacion, </strong>el cual es un paradigma de asignacion del procesador el cual consiste en varios programas de usuario que se ejecutan al mismo tiempo en la misma computadora. </p><p id="6eae48f8-bcb3-45de-a50c-e99d75976d1f" class="">
+</p><h3 id="3d8cf3dd-6ed7-4405-ab12-cf1dbcf436f9" class="">Multiprogramación: </h3><p id="85c40d2d-145c-4237-b7a3-4706caec3919" class="">● Número limitado de CPU que tiene el equipo.<br/>● Múltiples unidades de procesamiento (núcleos).<br/>● Entre más programas se ejecuten simultáneamente,<br/>mayor será la presión sobre la asignación del tiempo de CPU.<br/></p><p id="14b1985d-c331-4744-b316-e5700a2449d5" class="">
+</p><h3 id="fc8bc90e-424a-49ea-9485-ba1de36a0951" class="">Multitareas: </h3><p id="b246a2ef-729e-4f3e-b72f-2b1c0c1951e5" class="">● Ilusión de concurrencia.<br/>● Se asignan fragmentos de tiempo de procesador a cada una de las<br/>aplicaciones en ejecución de forma secuencial.<br/></p><p id="5ce38c13-4f53-46da-81f2-2ab94c0b14be" class="">
+</p><h3 id="200d276a-a8a0-4848-a4cb-fb9f98c20367" class="">Proceso en paralelo: </h3><p id="cc6422fc-2e4e-480a-8bf9-ad3be8ce006d" class="">Los sistemas operativos realizan un cambio rápido de CPU entre diferentes<br/>procesos.<br/></p><p id="a4e87817-67e9-4eb7-b34f-f87b9ecd4d79" class=""><br/>   En un momento dado, un solo proceso se ejecuta en un solo núcleo.<br/></p><p id="51734f7f-f72d-47aa-b538-5572adeb3b2d" class=""><br/>El número de procesos que se ejecutan en paralelo en una máquina es igual<br/>al número existente de unidades de procesamiento en esa máquina.<br/></p><p id="e1ff2b09-ec09-4a45-b1cc-fd4f5a88d941" class=""><br/>El cambio rápido entre procesos crea la ilusión de que todos los procesos se<br/>ejecutan en paralelo<br/></p><p id="d9954c93-6847-4ffc-ac6f-70f328e039e9" class="">
+</p><h3 id="f138ee33-b0ff-4579-af50-2a439db907b3" class="">Paradigma de multitareas</h3><figure id="68b3947b-7649-4c11-b857-4a588ccc77c8" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%207.png"><img style="width:708px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%207.png"/></a></figure><h3 id="6ccfcda1-c9d5-4d04-b3a9-4e76e717a60d" class="">Proceso</h3><figure id="8861a98d-3275-4183-9336-e0cccb5e80e2" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%208.png"><img style="width:708px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%208.png"/></a></figure><h3 id="ebe3682c-7449-4c5f-b2e4-ddcb1ed17483" class="">Estados del proceso: </h3><div id="475d7dd4-5e38-44ff-8a45-39b71fccb21b" class="column-list"><div id="7282e407-1130-4314-91cf-295ba4d10804" style="width:50%" class="column"><p id="4467c692-28ba-4848-b350-55b0459cedf4" class=""><strong>En ejecución:                                                                   </strong><br/>El proceso está utilizando la<br/>CPU.<br/>Se le ha asignado tiempo de<br/>procesador y el procesador<br/>ejecuta físicamente el<br/>código de la máquina de<br/>procesos.<br/></p><p id="1627d2f7-f5c4-4cbe-90d6-fc06026a218a" class="">
+</p><p id="51f94fbb-5367-4b32-9ca3-71cc0a59b665" class="">
+</p><p id="df662ef7-bc04-457e-bde6-162b7de89554" class="">
+</p><p id="e5826f93-df56-4719-8a81-fa329d88d073" class=""><strong>Bloqueado:</strong><br/>El proceso no puede<br/>ejecutarse hasta que ocurra<br/>algún evento externo.<br/>La CPU podría estar libre<br/>durante este período si<br/>ninguno de los procesos<br/>existentes está en<br/>condiciones de ejecutarse.<br/></p><p id="ab04a61e-1614-4d74-9af6-6af36f07ed51" class="">
+</p></div><div id="bac1967a-f3c7-4710-b1dc-b296cd5e2d8a" style="width:50%" class="column"><figure id="c4ad8799-b66b-4112-9cbc-4fba96e1c704" class="image" style="text-align:right"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%209.png"><img style="width:670px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%209.png"/></a></figure><p id="30a8c9fa-5670-40d5-ad3a-1955aad0800e" class="">
+</p><p id="f6cc9de5-79f5-4520-82eb-ec21bbc8a3af" class="">
+</p><figure id="b4776d87-0c21-4f7b-aff4-0565a51a81f7" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2010.png"><img style="width:331px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2010.png"/></a></figure></div></div><div id="596bcfef-e6ce-411c-a202-739fce8ce4e2" class="column-list"><div id="fd4debc5-49c8-479d-b642-2e20892d1663" style="width:50%" class="column"><p id="6a4039fc-0060-4eaf-a47b-075032a852ea" class=""><strong>Listo (ejecutable):</strong><br/>El proceso está listo para<br/>ejecutarse.<br/>No tiene que esperar a que<br/>ocurra ningún evento, pero<br/>el sistema operativo lo<br/>detiene temporalmente para<br/>permitir que otros procesos<br/>se ejecuten en la misma<br/>CPU<br/></p></div><div id="5e394871-1900-4d76-b0ed-1193f065ac69" style="width:50%" class="column"><figure id="cfa0f54e-a58f-48bc-8c67-4a7c540d7700" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2010.png"><img style="width:331px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2010.png"/></a></figure></div></div><h3 id="992fd62f-6373-4db2-bde0-796042eeddaf" class="">Planificador de procesos</h3><ul id="3421af95-1b87-4db4-b003-f27cd90a8d4f" class="bulleted-list"><li style="list-style-type:disc">Este determina los procesos a los que se asignará el tiempo del procesador y en que orden. </li></ul><div id="0d33e851-8e48-4772-b999-939bb6949362" class="column-list"><div id="d1260c2b-d4bd-4f1d-a4d9-0f8472679edf" style="width:50%" class="column"><ul id="199801b5-383d-4892-a509-501672b03a92" class="bulleted-list"><li style="list-style-type:disc">Determinan cuanto <strong>detener </strong> un proceso <strong> y dar tiempo </strong> de CPU a otro proceso <ul id="17f79915-d66c-442b-9b6b-dbc4409a5eef" class="bulleted-list"><li style="list-style-type:circle">Planificacion no preventiva (<strong>voluntaria) </strong></li></ul><ul id="28fca15b-18b6-4d08-a172-a60fb0280b6d" class="bulleted-list"><li style="list-style-type:circle">Planificacion preventiva (<strong>Forzada)</strong></li></ul></li></ul><p id="50a6fbb9-a8a7-4b79-989d-fa5e467a9aac" class="">
+</p><p id="ebe25713-270a-4628-8d85-ac51832def6b" class="">
+</p><p id="50e39b27-9b1e-46ea-8ca9-1fb4db0eb491" class="">
+</p></div><div id="5fbf8f53-3311-438f-91db-7883c50c0e38" style="width:50%" class="column"><figure id="5e5a1d4a-c039-420a-9c63-a19d38fa7686" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2011.png"><img style="width:569px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2011.png"/></a></figure><p id="f10b4b63-6347-4768-8ce1-74c3c4624d0c" class="">
+</p></div></div><figure id="bb059f25-6a87-4979-a6aa-88f0af8b0037" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2012.png"><img style="width:1178px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2012.png"/></a></figure><h3 id="85831d67-3c50-493f-896b-5700c95ea6a7" class="">Politicas del planificador de procesos </h3><p id="80022b11-1130-465b-9af3-292035299195" class=""><strong>● Por prioridad. </strong> A mayor prioridad, mayor tiempo del procesador.<strong><br/>● Primero en llegar, primero en ser atendido. (FIFO) ya conocemos el concepto<br/>● El trabajo más corto primero. <br/></strong> El proceso que requiere menos tiempo  <strong> del procesador </strong>tendra prioridad. <strong><br/>● El trabajo restante más corto primero. <br/></strong> El proceso que requiere <strong> menos tiempo para completarse </strong>tendra prioridad maxima <strong><br/>● Round-robin<br/></strong>: todos los procesos tienen la misma prioridad. </p><p id="5a634e2f-439a-4233-a1d7-050dbb17ce18" class="">
+</p><h2 id="7b49f6e5-5aa8-40df-bbbc-2341a317bb66" class="">Hilos (Threads)</h2><p id="4ad3e9b5-4762-4179-a7a7-b7a47851bf73" class="">
+</p><p id="b44dfcab-01d5-4f77-823c-bb305a5a0902" class="">Un hilo es una secuencia de un programa que realiza ciertas tareas y se ejecuta dentro de un proceso. </p><p id="d77cf92e-79ae-4f6b-a458-1d8e1498b5c7" class="">Tambien se les llama procesos ligeros o subprocesos. </p><p id="cfa6688d-b5c0-4159-8abd-b5c1e83edd7f" class="">● Se les pueden asignar diferentes prioridades dependiendo de su rol dentro<br/>del proceso de la aplicación.<br/>● La prioridad del hilo se puede asociar al hilo durante su creación y se puede<br/>cambiar durante la operación del hilo.<br/></p><figure id="416a6443-f21d-4c53-b516-426e3118b240" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2013.png"><img style="width:631px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2013.png"/></a></figure><p id="190354bf-589b-411d-a371-cb4ae9e37122" class="">● Pueden ejecutarse en modo preventivo:<br/>El sistema operativo interrumpe la ejecución del hilo a intervalos regulares<br/>para dar tiempo de procesamiento a otros hilos.<br/>● Puede ejecutarse en modo cooperativo:<br/>Un hilo puede acceder a la CPU durante el tiempo que lo necesite.<br/></p><p id="21944ca6-fa40-4c8c-9f85-e9c05b18ceec" class="">
+</p><h3 id="1fd0adfd-155a-42a0-aba0-602541b5664a" class="">Multihilos (Multi -threading) </h3><p id="2ef30e12-20ed-452b-a3fe-7f2474fd59ce" class="">El subprocesamiento multiple proporciona otro nivel de paralelismo para la ejecucion de tareas, con menos sobrecarga. </p><p id="fd500f27-91ce-47ae-97fe-1ac644db0510" class="">Cuando existen varios suprocesos, se pueden realizar diferentes tareas en paralelo utilizando datos y recursos comunes. </p><p id="7cbb332e-675c-4131-abae-1336d3dc1709" class="">● Es menos compleja y más rápida que la conmutación de los procesos, lo que<br/>hace que la multitarea sea una forma eficiente de emular el paralelismo.<br/>● La eficiencia está determinada principalmente por el hecho de que poseen<br/>menos recursos que los procesos que deben guardarse antes de cambiar el<br/>contexto.<br/></p><p id="fa5523aa-a1d8-4652-914b-56b538ef2319" class="">
+</p><p id="e44f1694-017c-4913-bec7-e2262d9245d1" class="">
+</p><div id="381b7443-fd44-44ca-b687-3f4803745e8d" class="column-list"><div id="9c44743e-b972-4d54-823c-0c8833712182" style="width:50%" class="column"><p id="f4d4581d-8d6e-428a-ba87-a9e2de225af3" class="">En general, un proceso consta de<br/>muchos hilos, cada uno<br/>ejecutándose al mismo tiempo<br/>dentro del contexto del proceso y<br/>realizando una tarea única.<br/></p></div><div id="be7c829a-1172-460f-8e4e-39ebc09da50d" style="width:50%" class="column"><figure id="3db22725-e9d8-48af-b6a5-88265da4be1c" class="image"><a href="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2014.png"><img style="width:331px" src="Examen%20de%20desarrollo%20de%20sistemas%20en%20red%20139d792adae54761a9d55bef7d4d18d2/Untitled%2014.png"/></a></figure></div></div><p id="b8171d7a-41bb-4ef0-8429-e530c4d0c7e0" class="">
+</p><p id="6f20066b-4422-47f6-bfee-7c833e5312db" class="">
+</p><h2 id="334b5bac-01d1-4290-a40c-3be8587bf7be" class="">Clase Thread en Java</h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0b8b2b93-0223-4d1a-9488-f55d5fe6a691" class="code"><code class="language-Java"> class Hilo extends Thread {
+ public void run() {
+ //Acciones a realizar
+ }
+ } 
+</code></pre><h3 id="97258ff9-31d7-468c-a4ea-f397f81aa74f" class="">Interfaz Runnable en Java</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="294f28c2-3ccc-4cce-8d12-caf44cbf9382" class="code"><code class="language-Java">class Hilo implements Runnable {
+ public void run() {
+ //Acciones a realizar
+ }
+ }</code></pre><p id="3d01384f-2eb0-4b9b-990d-23923b898c3c" class="">
+</p><h2 id="ced5ef8c-ad60-46df-aef1-0268f54fa08b" class="">Sockets</h2><p id="a7cf5514-912d-4242-8fc6-6025296dea85" class="">Los sockets brindan al desarrollador de aplicaciones acceso básico directo a los protocolos de transporte, ofreciendo servicios de transporte de paquetes de datos entre un remitente y un host receptor a través de la red, mientras que ocultan la complejidad y los detalles de implementación de la pila de protocolos.</p><p id="207a5fd0-662b-44e5-b35d-3e26365ce32a" class="">
+</p><p id="804c85ed-fb77-475a-815a-1ae6004d8639" class="">● Los sockets son puntos finales de enlace de comunicación de red entre dos<br/>aplicaciones (es decir, servidor y cliente).<br/></p><p id="95007be7-261b-43a8-83e5-b8fbcf1151eb" class=""><br/>● Ofrecen soporte básico de comunicación de datos de transporte y ocultan los detalles<br/>de implementación de la capa inferior.<br/></p><p id="edbf6640-a15f-42c9-ace5-d97fd15d16a8" class=""><br/>● Proporcionan un mayor nivel de abstracción para la infraestructura de comunicación<br/>subyacente.<br/></p><p id="8e511e55-38fe-431d-8e1f-f103645df6cc" class=""><br/>● Permiten el soporte para el desarrollo rápido y sencillo de aplicaciones basadas en red.<br/></p><p id="7e83ace8-a6a2-4cd2-b2a9-0d82c4b1270b" class="">
+</p><h3 id="d94abb9c-4676-4dcc-af44-9ea42ba5941e" class="">Tipos de sockets </h3><ul id="e382713e-b98e-43d0-b289-679f1e450fea" class="bulleted-list"><li style="list-style-type:disc"><strong>sockets de la capa de transporte: Utilizan protocolos de la capa de transporto como tcp y udp </strong></li></ul><ul id="d2b1974d-2251-4099-a2fe-62bf6a0e14ce" class="bulleted-list"><li style="list-style-type:disc"><strong>sockets de la capa de aplicacion. utilizan protocolos de la capa de aplicacion como el http y smtp </strong></li></ul><p id="b2273f77-b43f-4518-8655-860bcd422bdc" class="">
+</p><p id="39a47d32-373a-4ee2-a2f9-71c7524db191" class="">
+</p><h2 id="8f233123-2265-4773-b561-4cd352eec7ab" class="">Llamadas a procedimientos remotos (RCP - Remote Procedure Call)</h2><p id="8f5408a5-48c9-4ae0-9bd0-8c1fd8e11ec5" class="">Se basa en métodos que pertenecen a objetos ubicados en maquinas locales, se llaman a los métodos de dichos objetos de manera remota.</p><p id="4511af48-ee9b-4c95-9a40-523aed15ac74" class="">Este servicio consta de 2 partes : </p><h3 id="ed98950f-27bb-4bb4-aaaf-a27003152969" class="">Servidor RCP </h3><ul id="5c9eff6d-b32a-4972-bcbb-29bb1b471a00" class="bulleted-list"><li style="list-style-type:disc">El servidor crea algunos objetos,</li></ul><ul id="2143cc2f-7ca0-4b46-99a7-a31ba1f4d190" class="bulleted-list"><li style="list-style-type:disc">hace que las referencias a estos objetos sean accesibles de forma remota y espera a que los clientes llamen a los metodos que pertenencesn a estos objetos. </li></ul><p id="691a3915-598d-4a7f-8f9d-992b1ea14131" class="">
+</p><h3 id="db83d95b-bd62-463a-a724-0f910bafe2e8" class="">Cliente RCP</h3><ul id="de793078-feab-4b1c-9bfb-4d5bb8653988" class="bulleted-list"><li style="list-style-type:disc">El cliente obtiene una referencia remota a un objeto  en el servidor </li></ul><ul id="99cc9a21-64ed-44d3-b624-10ce4d75a18f" class="bulleted-list"><li style="list-style-type:disc">llama a los metodos y </li></ul><ul id="d2f2de03-8d47-4084-ac0a-d0ef664b83d9" class="bulleted-list"><li style="list-style-type:disc">obtiene los resultados. </li></ul><p id="e420079f-b9f8-4799-8369-ebb68634a3ed" class="">
+</p><p id="38eddef9-98a5-4339-be52-ab01e551a9ed" class="">
+</p><h2 id="bd0c29a0-41f2-45a7-8413-53979d6b2c17" class="">Arquitectura Orientada a Servicios (SOA)</h2><h3 id="16bcdd60-daba-4fed-9dd3-c03355c0ff76" class="">¿Que son los servicios?</h3><p id="725001f2-5324-44b8-bdb3-1f17dd457e46" class="">Un servicio es un componente de software con las siguientes propiedades: </p><ul id="2578b7ed-13eb-444c-ba21-9dc37060778a" class="bulleted-list"><li style="list-style-type:disc">Esta definido por una interfaz que puede ser independiente de la plataforma</li></ul><ul id="7efc5ede-a2e9-46cf-9399-fe70c5fc2787" class="bulleted-list"><li style="list-style-type:disc">Esta disponible en una red </li></ul><ul id="ee08b8c9-e6cd-4826-8038-2ff0602f3cf7" class="bulleted-list"><li style="list-style-type:disc">Las operaciones definidas en la interfaz llevan a cabo funciones comerciales operando en objetos comerciales </li></ul><ul id="64f6e407-bb90-41f4-93af-1815f4349c03" class="bulleted-list"><li style="list-style-type:disc">su interfaz y su implementacion se pueden decorar con extenciones que entran en vigencia en tiempo de ejecucion. </li></ul><h3 id="6618f815-0215-4530-8838-bdce889c8cf0" class="">¿Que es SOA? </h3><p id="1b5ed10d-e3a9-4763-926b-63ff52fbcacc" class="">Pära entender SOA, primero debemos entender su bloque de construccion fundamental, el servicio. </p><p id="7ae6ca73-e3b4-4b9c-a825-ba094cc786dd" class="">La arquitectura orientada a servicios (SOA) es un enfoque que ayuda a que los<br/>sistemas sigan siendo escalables y flexibles mientras crecen, y al mismo tiempo<br/>ayuda a cerrar la brecha entre negocios y TI.<br/></p><p id="01f006ab-56b6-4b6a-8b39-262d8640956e" class="">El enfoque consta de tres elementos principales:</p><p id="f3caeb2a-68ac-49a8-9732-10e96c7a8b1a" class=""><br/>○ Los servicios, que por un lado representan funcionalidades comerciales<br/>autónomas que pueden ser parte de uno o más procesos, y por otro lado, pueden<br/>ser implementados por cualquier tecnología en cualquier plataforma.<br/></p><p id="ff76b7ee-4173-4680-8dc9-96031fe7f419" class=""><br/>○ Una infraestructura específica, denominada Enterprise Service Bus (ESB), que<br/>nos permite combinar estos servicios de manera fácil y flexible.<br/></p><p id="b1c7606d-2cb1-42be-b259-e39e977706b1" class=""><br/>○ Políticas y procesos que abordan el hecho de que los grandes sistemas<br/>distribuidos son heterogéneos, están en mantenimiento y tienen diferentes<br/>propietarios<br/></p><p id="91c6e26b-b11a-4d85-b64f-032be5bdbc5f" class="">
+</p><p id="e1cce619-a49d-4903-8884-0367308646c4" class="">● SOA acepta que la única forma de mantener la flexibilidad en grandes sistemas<br/>distribuidos es admitir la heterogeneidad, la descentralización y la tolerancia a<br/>fallas.<br/></p><p id="a97c5588-6a5f-439d-ab94-a69f6af7c94c" class=""><br/>● El problema es que no se puede simplemente comprar SOA; hay que entenderlo y<br/>vivirlo.<br/></p><p id="4a954555-76c4-4b58-a58c-9523b017cc56" class=""><br/>● SOA es un paradigma. SOA es una forma de pensar. SOA es un sistema de valores<br/>para la arquitectura y el diseño.<br/></p><p id="99df8767-c52c-4f87-9770-5a069fb49482" class="">
+</p><h3 id="d01a0af9-b9b0-4512-86e4-5c048b195f45" class="">Principios de SOA: </h3><p id="85c01c43-876d-4fbf-b87a-c2b84339f9d7" class=""><strong>Arquitectura Basada en Servicios</strong><div class="indented"><p id="bd511b90-d657-43cd-9caa-5c843d4ecc3d" class="">● <strong>Contrato de servicio estandarizado         (Standardized Service Contract)  </strong></p><p id="2c20db79-0de3-46ba-874f-b651387d1c19" class="">Por ejemplo, se basan en un único modelo comercial coherente<br/>●<br/><strong> Bajo acoplamiento de servicios                 (Loose Service Coupling)</strong></p><p id="7820cf93-87e6-4235-af89-cc8350f3edbe" class="">Los contratos de servicio imponen bajos requisitos de acoplamiento de<br/>consumidores y están desacoplados de su entorno circundante.<br/><strong><br/>● Abstracción del servicio                               (Service Abstraction)<br/></strong></p><p id="f18342c3-aeb8-45c6-8654-9198fec47118" class=""> Los contratos de servicio sólo contienen información esencial<strong><br/>● Reutilización del servicio                               (Service Reusability)<br/></strong></p><p id="72d2a686-3805-4031-9b0c-abfe106ac3e1" class="">Los servicios contienen y expresan una lógica agnóstica y pueden posicionarse<br/>como recursos empresariales reutilizables<br/><strong><br/>● Autonomía del servicio                                  (Service Statelessness)<br/></strong></p><p id="13bca5e7-544e-4bf4-801e-644d26d698bd" class="">Los servicios minimizan el consumo de recursos al diferir la gestión de la<br/>información del estado cuando sea necesario.<br/><strong><br/>● Descubrimiento del servicio                         (Service Discoverability)<br/></strong></p><p id="34353d20-69f7-4499-8ee9-fc810ec2682b" class="">Los servicios se complementan con metadatos comunicativos mediante los cuales<br/>pueden ser descubiertos e interpretados de manera efectiva<br/><strong><br/>● Capacidad de composición del servicio   (Service Composability)<br/></strong></p><p id="e8cc0e33-694b-42a3-815a-423d0d78647d" class="">Los servicios son participantes efectivos de la composición, independientemente<br/>del tamaño y la complejidad de la composición.<br/></p><p id="09b22814-ca5d-405e-a145-357528de3b28" class="">
+</p><h3 id="3550800a-0f3f-486d-8129-d5e247063ce8" class="">Tecnologias para el desarrollo de SOA: </h3><p id="55aad4cd-5a43-403b-8daa-1c5d10afdb16" class="">● JBoss Enterprise SOA Platform que incluye una arquitectura orientada a servicios<br/>(SOA)<br/></p><p id="2d43d804-aa9b-4dfb-8bec-a929be87707f" class="">
+</p><p id="5072db6f-422c-49c9-a3d5-3244af038af8" class="">● Oracle BPM, integrado por dos productos, Oracle BPA y Oracle SOA Suite. </p><p id="4285417b-2c18-43d1-8cb0-75e439d9ed15" class="">
+</p><p id="cb2b0bad-18f5-4c24-901a-74cfe3f1a58d" class="">● IBM WebSphere BPM </p></div></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
